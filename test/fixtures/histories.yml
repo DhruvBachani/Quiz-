@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_time: 2021-06-17 18:52:33
+  category: MyString
+  difficulty_level: MyString
+  questions: MyString
+  correct: 
+  no_ques: 
+
+two:
+  date_time: 2021-06-17 18:52:33
+  category: MyString
+  difficulty_level: MyString
+  questions: MyString
+  correct: 
+  no_ques: 

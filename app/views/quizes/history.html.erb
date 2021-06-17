@@ -1,0 +1,7 @@
+<% History.all.each do |history| %>
+    <h3>Date/Time : <%=history.date_time%></h3>
+    <h3>Category : <%=history.category.join(" ")%></h3>
+    <h3>Difficulty : <%=history.difficulty_level%></h3>
+    <h3>Questions ids : <%=history.questions.join(" ")%></h3>
+    <h3>Result : <%=history.correct%> out of <%=history.no_ques%></h3>
+<%end%>

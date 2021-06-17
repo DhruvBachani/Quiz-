@@ -1,0 +1,14 @@
+<h2> You scored <%=session[:attempts].first['correct']%>/<%=session[:attempts].first['no_ques']%></h2>
+<% session[:attempts].slice(1..).each do |attempt|%>
+       <div><h4><%= attempt['timestamp'] %>, score : <%= attempt['correct'] %>/<%= attempt['no_ques'] %></h4></div> 
+<%end%>
+
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<div class="btn-group">
+    <%= button_to "Redo Same Quiz", "/redo", method: :post, class:"btn btn-primary"%>
+</div>
+<div lass="btn-group">
+    <%= button_to "New Quiz", "/start", method: :post, class:"btn btn-primary"%>
+</div>
+</div>

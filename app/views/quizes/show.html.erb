@@ -1,0 +1,26 @@
+<h1><%= @question.question_statement %></h1>
+
+<%= form_with do |f| %>
+<div>
+    <% if @question.correct_answer.size > 1 %>
+        <% @question.options.each do |option| %>
+            <%= f.check_box :option, {:multiple => true}, option, nil%>
+            <%= f.label :option_label, option, :value => option  %>
+    
+        <% end %>
+    <% else %>
+        <% @question.options.each do |option| %>
+            <%= f.radio_button :option, option %>
+            <%= f.label :option_label, option, :value => option %>
+    
+        <% end %>
+    <%end%>
+    </div>
+    <br>
+    <div>
+    <%= f.submit "Submit", disabled: true, value: 'Submit', class: 'btn btn-primary'%>
+    </div>
+    
+<% end %>
+
+ <%= javascript_include_tag 'options' %>

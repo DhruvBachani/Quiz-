@@ -1,0 +1,48 @@
+<div class='form'>
+
+<%= form_with url:"/start", method: :post do|f|%>
+<div class="form-group">
+ <h6>Choose the number of questions: </h6>
+    <%= f.range_field 'no_ques', :min=>4, :max=>8, :value=>session[:no_ques], class: "form-control-range"%>
+    <%= f.label :no_ques, session[:no_ques].nil? ? '6' : session[:no_ques].to_s, :id => 'no_ques_label'%>
+    </div>
+    
+    <br>
+    <div>
+     <h6>Choose the category: </h6>
+     
+      <%= f.check_box :category, {:multiple => true, checked: session[:category] && session[:category].include?("Linux")}, "Linux", nil%>
+     <%= f.label :option_label, "Linux", :value => "Linux"  %>
+    
+    <%= f.check_box :category, {:multiple => true, checked: session[:category] && session[:category].include?("DevOps")}, "DevOps", nil%>
+     <%= f.label :option_label, "DevOps", :value => "DevOps"  %>
+     
+     <%= f.check_box :category, {:multiple => true, checked: session[:category] && session[:category].include?("Networking")}, "Networking", nil%>
+     <%= f.label :option_label, "Networking", :value => "Networking"  %>
+     
+      <%= f.check_box :category, {:multiple => true, checked: session[:category] && session[:category].include?("Docker")}, "Docker", nil%>
+     <%= f.label :option_label, "Docker", :value => "Docker"  %>
+     
+    
+</div>
+<br>
+<div>
+ <h6>Choose the difficulty level: </h6>
+<div class="form-check form-check-inline">    <%= f.radio_button :difficulty_level, "Easy", checked: session[:difficulty_level]=='Easy' %>
+    <%= f.label :difficulty_level, "Easy", :value => "Easy"  %>
+    </div>
+<div class="form-check form-check-inline">    <%= f.radio_button :difficulty_level, "Medium", checked: session[:difficulty_level]=='Medium' %>
+    <%= f.label :difficulty_level, "Medium", :value => "Medium" %>
+    </div>
+<div class="form-check form-check-inline">    <%= f.radio_button :difficulty_level, "Hard", checked: session[:difficulty_level]=='Hard'%>
+    <%= f.label :difficulty_level, "Hard", :value => "Hard"  %>
+    </div>
+    <div class="form-group">
+     </div>
+    <%= f.submit "Start Quiz", disabled: true, class: 'btn btn-primary' %>
+    </div>
+<%end%>
+
+</div>
+ <%= javascript_include_tag 'index' %>
+
